@@ -2,7 +2,7 @@ import { LOGIN_EMAIL } from '../actions';
 
 const INITIAL_STATE = {
   user: {
-    email: '', // string que armazena o email da pessoa usuária
+    email: 'Configure seu email!', // string que armazena o email da pessoa usuária
   },
 };
 
