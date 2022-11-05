@@ -1,0 +1,65 @@
+header {
+  background: white;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+  height: 482px;
+  left: 121px;
+  margin-left: 15%;
+  margin-right: 15%;
+  top: -97px;
+  width: 1037px;
+}
+
+.title {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 5%;
+}
+
+.trybe {
+  color: rgb(0, 59, 229);
+  font-size: 40px;
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+.wallet {
+  color: rgb(47, 193, 140);
+  font-size: 40px;
+  font-weight: 1000;
+  margin-left: 2px;
+}
+
+.img-dinheiro {
+  margin-left: 5%;
+
+}
+
+.texto {
+  color: rgba(0, 59, 229, 1);
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 3px;
+  margin-right: 3px;
+
+}
+
+.despesa {
+  color: rgba(0, 59, 229, 1);
+}
+
+.cambio {
+  color: rgba(0, 59, 229, 1);
+}
+
+.img-user {
+  margin-left: 5%;
+}
+
+.email2 {
+  align-items: center;
+  border: 0;
+  color: rgb(47, 193, 140);
+  font-size: 16px;
+  font-weight: 600;
+}

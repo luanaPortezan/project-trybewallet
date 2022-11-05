@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 import logo from '../img/logo.jpg';
-import { login } from '../redux/actions';
+import { userAction } from '../redux/actions/user';
 
 class Login extends React.Component {
   constructor() {
@@ -17,9 +17,12 @@ class Login extends React.Component {
 
   handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState(() => ({
-      [name]: value,
-    }), this.validateEmail);
+    this.setState(
+      () => ({
+        [name]: value,
+      }),
+      this.validateEmail,
+    );
   };
 
   validateEmail = () => {
@@ -37,9 +40,7 @@ class Login extends React.Component {
   buttonEntrar = () => {
     const { dispatch, history } = this.props;
     const { email } = this.state;
-    dispatch(
-      login(email),
-    );
+    dispatch(userAction(email));
     history.push('/carteira');
   };
 
@@ -47,7 +48,6 @@ class Login extends React.Component {
     const { email, password, isDisable } = this.state;
     return (
       <div className="login">
-
         <div className="title">
           <img className="logo" src={ logo } alt="logo" />
           <h1 className="trybe">Trybe</h1>
@@ -55,10 +55,9 @@ class Login extends React.Component {
         </div>
 
         <form className="form">
-
           <label htmlFor="email">
             <input
-              className="email"
+              className="email1"
               data-testid="email-input"
               id="email"
               name="email"
@@ -72,7 +71,6 @@ class Login extends React.Component {
           <br />
 
           <label className="pass" htmlFor="password">
-
             <input
               className="password"
               data-testid="password-input"
