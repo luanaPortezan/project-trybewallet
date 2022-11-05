@@ -1,0 +1,94 @@
+.login {
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 356px;
+  justify-content: center;
+  left: 377px;
+  margin-left: 377px;
+  margin-top: 201px;
+  top: 201px;
+  width: 525px;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+}
+
+.trybe {
+  color: rgb(0, 59, 229);
+  font-size: 40px;
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+.wallet {
+  color: rgb(47, 193, 140);
+  font-size: 40px;
+  font-weight: 1000;
+  margin-left: 2px;
+}
+
+.form {
+  height: 140px;
+  left: 475px;
+  margin-top: 2%;
+  top: 360px;
+  width: 330px;
+}
+
+.email {
+  border: 1px solid rgb(0, 59, 229);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-style: 'Epilogue';
+  height: 40px;
+  left: 475px;
+  top: 360px;
+  width: 330px;
+}
+
+.email::placeholder {
+  color: rgb(0, 59, 229);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.password {
+  border: 1px solid rgb(0, 59, 229);
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 40px;
+  left: 475px;
+  margin-top: 3%;
+  top: 360px;
+  width: 330px;
+}
+
+.password::placeholder {
+  color: rgb(0, 59, 229);
+  font-size: 14px;
+}
+
+.button {
+  background-color: rgb(0, 59, 229);
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: 900;
+  height: 40px;
+  left: 475px;
+  line-height: 14.35px;
+  margin-top: 3%;
+  top: 460px;
+  width: 330px;
+}
+
+.button:disabled {
+  background-color: rgb(0, 59, 229);
+  opacity: 0.6;
+}

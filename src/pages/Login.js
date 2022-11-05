@@ -1,6 +1,8 @@
+import './Login.css';
 import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
+import logo from '../img/logo.jpg';
 import { login } from '../redux/actions';
 
 class Login extends React.Component {
@@ -47,6 +49,7 @@ class Login extends React.Component {
       <div className="login">
 
         <div className="title">
+          <img className="logo" src={ logo } alt="logo" />
           <h1 className="trybe">Trybe</h1>
           <h1 className="wallet">Wallet</h1>
         </div>
