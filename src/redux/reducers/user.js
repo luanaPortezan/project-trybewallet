@@ -1,17 +1,15 @@
-import { LOGIN_EMAIL } from '../actions/user';
+import { LOGIN } from '../actions/user';
 
-const INITIAL_STATE = {
-  user: {
-    email: '', // string que armazena o email da pessoa usuária
-  },
+const initialState = {
+  email: '',
 };
 
-function userReducer(state = INITIAL_STATE, action) {
+function userReducer(state = initialState, action) {
   switch (action.type) {
-  case LOGIN_EMAIL:
+  case LOGIN:
     return {
       ...state,
-      email: action.email,
+      email: action.payload,
     };
   default:
     return state;

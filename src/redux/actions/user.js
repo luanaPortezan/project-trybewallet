@@ -1,6 +1,6 @@
-export const LOGIN_EMAIL = 'LOGIN_EMAIL';
+export const LOGIN = 'LOGIN';
 
-export const userAction = (email) => ({
-  type: LOGIN_EMAIL,
-  email,
+export const login = (payload) => ({
+  type: LOGIN,
+  payload,
 });

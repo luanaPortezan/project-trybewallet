@@ -8,20 +8,18 @@ export const removeExpenses = (id) => ({
 // Editar despesas
 
 export const EDITMODEON = 'EDITMODEON';
+export const MODIFYEXPENSES = 'MODIFYEXPENSES';
+export const EDITMODEOFF = 'EDITMODEOFF';
 
 export const editModeON = (id) => ({
   type: EDITMODEON,
   payload: id,
 });
 
-export const MODIFYEXPENSES = 'MODIFYEXPENSES';
-
 export const modifyExpenses = (payload) => ({
   type: MODIFYEXPENSES,
   payload,
 });
-
-export const EDITMODEOFF = 'EDITMODEOFF';
 
 export const editModeOFF = () => ({
   type: EDITMODEOFF,

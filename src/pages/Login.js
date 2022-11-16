@@ -1,9 +1,9 @@
-import './Login.css';
 import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { login } from '../redux/actions/user';
+import './Login.css';
 import logo from '../img/logo.jpg';
-import { userAction } from '../redux/actions/user';
 
 class Login extends React.Component {
   constructor() {
@@ -17,30 +17,27 @@ class Login extends React.Component {
 
   handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState(
-      () => ({
-        [name]: value,
-      }),
-      this.validateEmail,
-    );
+    this.setState(() => ({
+      [name]: value,
+    }), this.validadeGeneral);
   };
 
-  validateEmail = () => {
+  validadeGeneral = () => {
     const { password, email } = this.state;
-    const minSizePassword = 6;
+    const minPassword = 6;
     const regex = /\S+@\S+\.\S+/;
 
-    if (password.length >= minSizePassword && regex.test(email)) {
+    if (password.length >= minPassword && regex.test(email)) {
       this.setState({ isDisable: false });
     } else {
       this.setState({ isDisable: true });
     }
   };
 
-  buttonEntrar = () => {
+  loginBTN = () => {
     const { dispatch, history } = this.props;
     const { email } = this.state;
-    dispatch(userAction(email));
+    dispatch(login(email));
     history.push('/carteira');
   };
 
@@ -53,7 +50,6 @@ class Login extends React.Component {
           <h1 className="trybe">Trybe</h1>
           <h1 className="wallet">Wallet</h1>
         </div>
-
         <form className="form">
           <label htmlFor="email">
             <input
@@ -67,10 +63,7 @@ class Login extends React.Component {
               placeholder="E-mail:"
             />
           </label>
-
-          <br />
-
-          <label className="pass" htmlFor="password">
+          <label htmlFor="password">
             <input
               className="password"
               data-testid="password-input"
@@ -82,12 +75,11 @@ class Login extends React.Component {
               placeholder="Senha:"
             />
           </label>
-
           <button
             className="button"
             type="button"
             disabled={ isDisable }
-            onClick={ this.buttonEntrar }
+            onClick={ this.loginBTN }
           >
             Entrar
           </button>
@@ -104,4 +96,4 @@ Login.propTypes = {
   }).isRequired,
 };
 
-export default connect()(Login);
+export default connect(null)(Login);

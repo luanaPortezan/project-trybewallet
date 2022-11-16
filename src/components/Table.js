@@ -39,7 +39,7 @@ class Table extends Component {
                 <td>{ele.method}</td>
                 <td>{Number(ele.value).toFixed(2)}</td>
                 <td>{ele.exchangeRates[ele.currency].name}</td>
-                {Number(ele.exchangeRates[ele.currency].ask).toFixed(2)}
+                <td>{Number(ele.exchangeRates[ele.currency].ask).toFixed(2)}</td>
                 <td>
                   {(Number(ele.exchangeRates[ele.currency]
                     .ask) * ele.value).toFixed(2)}
@@ -49,12 +49,12 @@ class Table extends Component {
                 <td>
                   <button
                     type="button"
-                    data-testid="edit-btn"
                     onClick={ () => { this.editBTN(ele.id); } }
+                    data-testid="edit-btn"
                   >
                     Editar
-                  </button>
 
+                  </button>
                   <button
                     type="button"
                     onClick={ () => { this.remeveBTN(ele.id); } }
@@ -62,6 +62,7 @@ class Table extends Component {
                   >
                     X
                   </button>
+
                 </td>
               </tr>
             ))}
@@ -78,8 +79,9 @@ const mapStateToProps = (globalState) => ({
 });
 
 Table.propTypes = {
-  expenses: PropTypes.arrayOf,
-  dispatch: PropTypes.func,
-}.isRequired;
+  expenses: PropTypes.arrayOf.isRequired,
+  dispatch: PropTypes.func.isRequired,
+
+};
 
 export default connect(mapStateToProps)(Table);
