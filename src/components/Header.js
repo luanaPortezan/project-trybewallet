@@ -10,13 +10,38 @@ class Header extends Component {
   constructor() {
     super();
     this.state = {
-      expense: 0,
       cambio: 'BRL',
+      sum: 0,
     };
   }
 
+  componentDidMount() {
+    this.getSum();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { expenses } = this.props;
+    if (prevProps.expenses !== expenses) {
+      this.getSum();
+    }
+  }
+
+  getSum = () => {
+    const { expenses } = this.props;
+    const newExpenses = [expenses[expenses.length - 1]];
+    if (expenses.length > 0) {
+      const { sum } = this.state;
+      const getValue = Number(newExpenses.map((el) => el.value));
+      const getCurrency = newExpenses.map((el) => el.currency).toString();
+      const getExchangeRates = newExpenses.map((el) => el.exchangeRates);
+      const getAsk = Number(getExchangeRates.map((el) => el[getCurrency].ask));
+      const getSum = (getValue * getAsk) + Number(sum);
+      this.setState({ sum: getSum.toFixed(2) });
+    }
+  };
+
   render() {
-    const { expense, cambio } = this.state;
+    const { cambio, sum } = this.state;
     const { user } = this.props;
     const { email } = user;
     return (
@@ -28,7 +53,7 @@ class Header extends Component {
           <h1 className="wallet">Wallet</h1>
           <img className="img-dinheiro" src={ imgDinheiro } alt="dinheiro imagem" />
           <p className="texto">Total de Despesas</p>
-          <h3 className="despesa" data-testid="total-field">{expense}</h3>
+          <h3 className="despesa" data-testid="total-field">{ sum }</h3>
           <h3 className="cambio" data-testid="header-currency-field">{cambio}</h3>
           <img className="img-user" src={ imgUser } alt="user imagem" />
           <h3 className="email2" data-testid="email-field">{email}</h3>
@@ -43,12 +68,14 @@ const mapStateToProps = (globalState) => ({
   user: {
     email: globalState.user.email,
   },
+  expenses: globalState.wallet.expenses,
 });
 
 Header.propTypes = {
   user: PropTypes.shape({
     email: PropTypes.string,
-  }).isRequired,
-};
+  }),
+  expenses: PropTypes.object,
+}.isRequired;
 
 export default connect(mapStateToProps)(Header);

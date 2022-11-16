@@ -19,6 +19,20 @@ export const failedRequest = (error) => ({
   payload: error,
 });
 
+export const SAVEEXPENSES = 'SAVEEXPENSES';
+
+export const receiveExpensesSuccess = (currencyList) => ({
+  type: RECEIVE_CURRENCY_SUCCESS,
+  payload: currencyList,
+});
+
+export const saveExpenses = (payload) => ({
+  // console.log(dispatch);
+  // console.log(payload);
+  type: SAVEEXPENSES,
+  payload,
+});
+
 export function fetchCurrencies() {
   return async (dispatch) => {
     dispatch(requestCurrencies());
@@ -26,6 +40,7 @@ export function fetchCurrencies() {
       const url = 'https://economia.awesomeapi.com.br/json/all';
       const response = await fetch(url);
       const data = await response.json();
+      delete data.USDT;
       dispatch(receiveCurrencies(data));
     } catch (error) {
       dispatch(failedRequest(error));

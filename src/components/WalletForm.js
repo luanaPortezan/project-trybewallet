@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCurrencies } from '../redux/actions/wallet';
+import { fetchCurrencies, saveExpenses } from '../redux/actions/wallet';
+// import { actionFetchCurrencyn, saveExpenses } from '../redux/actions'; // pegar as actions
+// import getCurrencyList from '../services/currencyAPI'; // pegar api
 
 class WalletForm extends Component {
-  state = {
-    value: 0,
-    description: '',
-    method: 'Dinheiro',
-    tag: 'Alimentação',
-    currency: 'USD',
-  };
+  constructor() {
+    super();
+    this.state = {
+      value: '',
+      description: '',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+      currency: 'USD',
+      id: '',
+    };
+  }
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -19,7 +25,36 @@ class WalletForm extends Component {
 
   handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState({ [name]: value });
+    // this.setState({ [name]: value });
+    this.setState(() => ({
+      [name]: value,
+    }), this.validadeGeneral);
+  };
+
+  saveExpensesBtn = async () => {
+    const { dispatch } = this.props;
+    const { value, description, currency, method, tag, id } = this.state;
+
+    const exchangeRates = await getCurrencyList();
+
+    const objExpense = {
+      id,
+      value,
+      description,
+      currency,
+      method,
+      tag,
+      exchangeRates,
+    };
+    dispatch(saveExpenses(objExpense));
+    this.setState((prev) => ({
+      id: prev.id + 1,
+      value: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+      description: '',
+    }));
   };
 
   render() {
@@ -29,12 +64,12 @@ class WalletForm extends Component {
       <div>
         {isLoading && <h2>Carregando...</h2> }
 
-        <label htmlFor="expense">
+        <label htmlFor="value">
           Valor:
           <input
             type="number"
-            name="expense"
-            id="expense"
+            name="value"
+            id="value"
             data-testid="value-input"
             value={ value }
             onChange={ this.handleChange }
@@ -101,6 +136,13 @@ class WalletForm extends Component {
             }
           </select>
         </label>
+        <button
+          type="button"
+          onClick={ this.saveExpensesBtn }
+        >
+          Adicionar despesa
+
+        </button>
       </div>
     );
   }
@@ -108,7 +150,7 @@ class WalletForm extends Component {
 
 WalletForm.propTypes = {
   dispatch: PropTypes.func,
-  currencies: PropTypes.arrayOf(PropTypes.string.isRequired),
+  currencies: PropTypes.arrayOf(PropTypes.string),
   isLoading: PropTypes.bool,
 }.isRequired;
 

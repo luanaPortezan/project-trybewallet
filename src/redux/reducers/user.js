@@ -2,7 +2,7 @@ import { LOGIN_EMAIL } from '../actions/user';
 
 const INITIAL_STATE = {
   user: {
-    email: 'seu e-mail', // string que armazena o email da pessoa usuária
+    email: '', // string que armazena o email da pessoa usuária
   },
 };
 
@@ -11,7 +11,7 @@ function userReducer(state = INITIAL_STATE, action) {
   case LOGIN_EMAIL:
     return {
       ...state,
-      email: action.payload,
+      email: action.email,
     };
   default:
     return state;
