@@ -1,12 +1,12 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 import { REQUEST_CURRENCY, RECEIVE_CURRENCY_SUCCESS,
-  SAVEEXPENSES } from '../actions/wallet';
-import { REMOVEEXPENSES, EDITMODEON, MODIFYEXPENSES,
-  EDITMODEOFF } from '../actions/table';
+  SAVECASH } from '../actions/wallet';
+import { REMOVECASH, EDITON, MODIFYCASH,
+  EDITOFF } from '../actions/table';
 
 const initialState = {
   currencies: [],
-  expenses: [],
+  cash: [],
   editor: false,
   idToEdit: 0,
   isFetching: false,
@@ -23,41 +23,41 @@ function walletReducer(state = initialState, action) {
       currencies: action.payload,
       isFetching: false,
     };
-  case SAVEEXPENSES:
+  case SAVECASH:
     return {
       ...state,
       expenses: [...state.expenses, action.payload],
     };
-  case REMOVEEXPENSES: {
-    const ids = state.expenses.map((ele) => (ele.id));
+  case REMOVECASH: {
+    const ids = state.cash.map((element) => (element.id));
     const index = ids.indexOf(action.payload);
-    const newExpenses = [...state.expenses];
+    const newExpenses = [...state.cash];
     newExpenses.splice(index, 1);
     return {
       ...state,
-      expenses: newExpenses,
+      cash: newExpenses,
     };
   }
-  case EDITMODEON:
+  case EDITON:
     return {
       ...state,
       editor: true,
       idToEdit: action.payload,
     };
-  case EDITMODEOFF:
+  case EDITOFF:
     return {
       ...state,
       editor: false,
       idToEdit: action.payload,
     };
-  case MODIFYEXPENSES: {
-    const ids = state.expenses.map((ele) => (ele.id));
+  case MODIFYCASH: {
+    const ids = state.cash.map((element) => (element.id));
     const index = ids.indexOf(action.payload.id);
-    const newExpenses = [...state.expenses];
+    const newExpenses = [...state.cash];
     newExpenses[index] = action.payload;
     return {
       ...state,
-      expenses: newExpenses,
+      cash: newExpenses,
     };
   }
   default:
