@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { removeExpenses, editModeON } from '../redux/actions/table';
+import { removeCash, editOn } from '../redux/actions/table';
 
 class Table extends Component {
-  remeveBTN = (id) => {
+  removeBtn = (id) => {
     const { dispatch } = this.props;
-    dispatch(removeExpenses(id));
+    dispatch(removeCash(id));
   };
 
-  editBTN = (id) => {
+  editBtn = (id) => {
     const { dispatch } = this.props;
-    dispatch(editModeON(id));
+    dispatch(editOn(id));
   };
 
   render() {
-    const { expenses } = this.props;
+    const { cash } = this.props;
     return (
       <div>
         <table>
@@ -32,24 +32,24 @@ class Table extends Component {
             <th>Editar/Excluir</th>
           </tr>
           <tbody>
-            {expenses.map((ele) => (
-              <tr key={ ele.id }>
-                <td>{ele.description}</td>
-                <td>{ele.tag}</td>
-                <td>{ele.method}</td>
-                <td>{Number(ele.value).toFixed(2)}</td>
-                <td>{ele.exchangeRates[ele.currency].name}</td>
-                <td>{Number(ele.exchangeRates[ele.currency].ask).toFixed(2)}</td>
+            {cash.map((element) => (
+              <tr key={ element.id }>
+                <td>{element.description}</td>
+                <td>{element.tag}</td>
+                <td>{element.method}</td>
+                <td>{Number(element.value).toFixed(2)}</td>
+                <td>{element.exchangeRates[element.currency].name}</td>
+                <td>{Number(element.exchangeRates[element.currency].ask).toFixed(2)}</td>
                 <td>
-                  {(Number(ele.exchangeRates[ele.currency]
-                    .ask) * ele.value).toFixed(2)}
+                  {(Number(element.exchangeRates[element.currency]
+                    .ask) * element.value).toFixed(2)}
 
                 </td>
                 <td>BRL</td>
                 <td>
                   <button
                     type="button"
-                    onClick={ () => { this.editBTN(ele.id); } }
+                    onClick={ () => { this.editBtn(element.id); } }
                     data-testid="edit-btn"
                   >
                     Editar
@@ -57,7 +57,7 @@ class Table extends Component {
                   </button>
                   <button
                     type="button"
-                    onClick={ () => { this.remeveBTN(ele.id); } }
+                    onClick={ () => { this.removeBtn(element.id); } }
                     data-testid="delete-btn"
                   >
                     X
@@ -75,11 +75,11 @@ class Table extends Component {
 }
 
 const mapStateToProps = (globalState) => ({
-  expenses: globalState.wallet.expenses,
+  cash: globalState.wallet.cash,
 });
 
 Table.propTypes = {
-  expenses: PropTypes.arrayOf.isRequired,
+  cash: PropTypes.arrayOf.isRequired,
   dispatch: PropTypes.func.isRequired,
 
 };

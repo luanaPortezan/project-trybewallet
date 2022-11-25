@@ -2,7 +2,7 @@ import getCurrencyList from '../../services/Api';
 
 export const REQUEST_CURRENCY = 'REQUEST_CURRENCY';
 export const RECEIVE_CURRENCY_SUCCESS = 'RECEIVE_CURRENCY_SUCCESS';
-export const SAVEEXPENSES = 'SAVEEXPENSES';
+export const SAVECASH = 'SAVECASH';
 
 export const requestCurrency = () => ({
   type: REQUEST_CURRENCY,
@@ -30,16 +30,16 @@ export const fetchCurrency = async (dispatch) => {
   }
 };
 
-export const actionFetchCurrencyn = () => fetchCurrency;
+export const actionFetch = () => fetchCurrency;
 
 export const receiveExpensesSuccess = (currencyList) => ({
   type: RECEIVE_CURRENCY_SUCCESS,
   payload: currencyList,
 });
 
-export const saveExpenses = (payload) => ({
+export const saveCash = (payload) => ({
   // console.log(dispatch);
   // console.log(payload);
-  type: SAVEEXPENSES,
+  type: SAVECASH,
   payload,
 });

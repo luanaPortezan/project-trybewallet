@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Header extends Component {
-  calculateTotal = () => {
-    const { expenses } = this.props;
-    const total = expenses.reduce((acc, ele) => {
+  caclTotal = () => {
+    const { cash } = this.props;
+    const total = cash.reduce((acc, ele) => {
       const coin = ele.currency;
       const { ask } = ele.exchangeRates[coin];
       const { value } = ele;
@@ -22,7 +22,7 @@ class Header extends Component {
       <div>
         <h1>TrybeWallet</h1>
         <div>
-          <h3 data-testid="total-field">{this.calculateTotal()}</h3>
+          <h3 data-testid="total-field">{this.caclTotal()}</h3>
           <h3 data-testid="header-currency-field">BRL</h3>
         </div>
         <h3
@@ -38,12 +38,12 @@ class Header extends Component {
 
 const mapStateToProps = (globalState) => ({
   email: globalState.user.email,
-  expenses: globalState.wallet.expenses,
+  cash: globalState.wallet.cash,
 });
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
-  expenses: PropTypes.arrayOf.isRequired,
+  cash: PropTypes.arrayOf.isRequired,
 
 };
 

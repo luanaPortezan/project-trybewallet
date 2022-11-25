@@ -1,27 +1,27 @@
-export const REMOVEEXPENSES = 'REMOVEEXPENSES';
+export const REMOVECASH = 'REMOVECASH';
 
-export const removeExpenses = (id) => ({
-  type: REMOVEEXPENSES,
+export const removeCash = (id) => ({
+  type: REMOVECASH,
   payload: id,
 });
 
 // Editar despesas
 
-export const EDITMODEON = 'EDITMODEON';
-export const MODIFYEXPENSES = 'MODIFYEXPENSES';
-export const EDITMODEOFF = 'EDITMODEOFF';
+export const EDITON = 'EDITON';
+export const MODIFYCASH = 'MODIFYCASH';
+export const EDITOFF = 'EDITOFF';
 
-export const editModeON = (id) => ({
-  type: EDITMODEON,
+export const editOn = (id) => ({
+  type: EDITON,
   payload: id,
 });
 
-export const modifyExpenses = (payload) => ({
-  type: MODIFYEXPENSES,
+export const modifyCash = (payload) => ({
+  type: MODIFYCASH,
   payload,
 });
 
-export const editModeOFF = () => ({
-  type: EDITMODEOFF,
+export const editOff = () => ({
+  type: EDITOFF,
   payload: 0,
 });
