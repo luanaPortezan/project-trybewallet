@@ -1,96 +1,86 @@
+:root {
+  --primary-color: #6700e5;
+  --secondary-color: rgb(47, 193, 123);
+  --button-disabled-opacity: 0.6;
+}
+
 .login {
-  align-items: center;
-  background: white;
-  border-radius: 10px;
-  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  padding: 20%;
+  width: 100%;
+  margin-left: 80%;
+  margin-top: 20%;
   display: flex;
   flex-direction: column;
-  height: 356px;
-  justify-content: center;
-  left: 377px;
-  margin-left: 377px;
-  margin-top: 201px;
-  top: 201px;
-  width: 525px;
-}
-
-.title {
   align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(47, 2, 70, 0.3);
+
+}
+.title {
   display: flex;
-}
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  }
 
-.trybe {
-  color: rgb(0, 59, 229);
-  font-size: 40px;
-  font-weight: 300;
-  margin-left: 2px;
-}
 
-.wallet {
-  color: rgb(47, 193, 140);
-  font-size: 40px;
-  font-weight: 1000;
-  margin-left: 2px;
-}
-
-.form {
-  height: 140px;
-  left: 475px;
-  margin-top: 2%;
-  top: 360px;
-  width: 330px;
-}
-
-.email1 {
-  border: 1px solid rgb(0, 59, 229);
+.email1, .password {
+  border: 1px solid var(--primary-color);
   border-radius: 5px;
-  box-sizing: border-box;
-  color: rgba(47, 193, 140, 1);
-  font-style: 'Epilogue';
-  height: 40px;
-  left: 475px;
-  top: 360px;
-  width: 330px;
+  color: var(--secondary-color);
+  font-family: 'Epilogue', sans-serif;
+  padding: 0.5rem;
+  width: 100%;
+  margin: 1%;
 }
 
-.email1::placeholder {
-  color: rgb(0, 59, 229);
-  font-size: 14px;
+.email1::placeholder, .password::placeholder {
+  color: var(--primary-color);
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
-.password {
-  border: 1px solid rgb(0, 59, 229);
-  border-radius: 5px;
-  box-sizing: border-box;
-  color: rgba(47, 193, 140, 1);
-  height: 40px;
-  left: 475px;
-  margin-top: 3%;
-  top: 360px;
-  width: 330px;
-}
-
-.password::placeholder {
-  color: rgb(0, 59, 229);
-  font-size: 14px;
-}
-
 .button {
-  background-color: rgb(0, 59, 229);
+  background-color: var(--primary-color);
   border-radius: 5px;
   color: white;
-  font-size: 16px;
-  font-weight: 900;
+  font-size: 1rem;
+  font-weight: bold;
   height: 40px;
-  left: 475px;
-  line-height: 14.35px;
+  width: 20%;
   margin-top: 3%;
-  top: 460px;
-  width: 330px;
 }
 
 .button:disabled {
-  background-color: rgba(0, 59, 229, 1);
-  opacity: 0.6;
+  background-color: var(--primary-color);
+  opacity: var(--button-disabled-opacity);
 }
+
+  /* .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  } */
+  /* 
+
+.trybe {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-left: 0.5rem;
+}
+
+.wallet {
+  color: var(--secondary-color);
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+
+
+
+} */

@@ -1,13 +1,13 @@
 body {
   margin: 0;
+  padding: 0;
+  border: 0;
   background-attachment: fixed;
   background-blend-mode: luminosity;
-  background-color: rgb(47, 193, 140);
+  background-color: #2a1c7b;
   background-image: url('../src/img/foto-fundo.png');
-  background-position: left center;
-  background-repeat: no-repeat;
   background-size: 100%;
-  display: flex;
   font-family: Epilogue, Modern Antiqua, sans-serif;
+  display: flex;
+  height: 100vh;  
 }
-                                           

@@ -20,7 +20,7 @@ class Header extends Component {
     const { email } = this.props;
     return (
       <div>
-        <h1>TrybeWallet</h1>
+        <h1>MyWallet</h1>
         <div>
           <h3 data-testid="total-field">{this.caclTotal()}</h3>
           <h3 data-testid="header-currency-field">BRL</h3>

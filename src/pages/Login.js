@@ -47,7 +47,7 @@ class Login extends React.Component {
       <div className="login">
         <div className="title">
           <img className="logo" src={ logo } alt="logo" />
-          <h1 className="trybe">Trybe</h1>
+          <h1 className="My">My</h1>
           <h1 className="wallet">Wallet</h1>
         </div>
         <form className="form">
