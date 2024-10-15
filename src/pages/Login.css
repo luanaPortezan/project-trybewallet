@@ -5,17 +5,18 @@
 }
 
 .login {
-  padding: 20%;
+  padding: 30%;
   width: 100%;
-  margin-left: 80%;
-  margin-top: 20%;
+  margin-left: 140%;
+  margin-top: 40%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   background: white;
   border-radius: 10px;
   box-shadow: -4px 9px 13px rgba(47, 2, 70, 0.3);
+  ;
 
 }
 .title {
@@ -31,9 +32,10 @@
   border-radius: 5px;
   color: var(--secondary-color);
   font-family: 'Epilogue', sans-serif;
+  height: 20px;
   padding: 0.5rem;
   width: 100%;
-  margin: 1%;
+  margin-top: 5%;
 }
 
 .email1::placeholder, .password::placeholder {
@@ -49,8 +51,8 @@
   font-size: 1rem;
   font-weight: bold;
   height: 40px;
-  width: 20%;
-  margin-top: 3%;
+  width: 100px;
+  margin-top: 5%;
 }
 
 .button:disabled {
@@ -58,15 +60,11 @@
   opacity: var(--button-disabled-opacity);
 }
 
-  /* .form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.form {
     gap: 1rem;
-  } */
-  /* 
+  } 
 
-.trybe {
+.My {
   color: var(--primary-color);
   font-size: 2.5rem;
   font-weight: 300;
@@ -80,7 +78,3 @@
   margin-left: 0.5rem;
 }
 
-
-
-
-} */

@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  background-attachment: fixed;
+  /* background-attachment: ; */
   background-blend-mode: luminosity;
   background-color: #2a1c7b;
   background-image: url('../src/img/foto-fundo.png');
