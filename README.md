@@ -1,8 +1,8 @@
-# TrybeWallet Project
+# MyWallet Project
 
-Welcome to the TrybeWallet Project repository! This project was developed as part of the Trybe web development course, aiming to apply the concepts learned throughout the course.
+Welcome to the MyWallet Project repository! This project was developed as part of the Trybe web development course, aiming to apply the concepts learned throughout the course.
 
-TrybeWallet is a web application for financial control, allowing users to register and track their financial transactions. With this application, you can add income and expense transactions, categorize them, and view a summary of your balance.
+MyWallet is a web application for financial control, allowing users to register and track their financial transactions. With this application, you can add income and expense transactions, categorize them, and view a summary of your balance.
 
 ## Features
 
